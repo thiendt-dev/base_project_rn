@@ -3,9 +3,13 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '11.0'
 
+
 target 'base_project' do
   config = use_native_modules!
+  # pod 'react-native-config', :path => '../node_modules/react-native-config'
 
+  #  # For extensions without React dependencies
+  #  pod 'react-native-config/Extension', :path => '../node_modules/react-native-config'
   use_react_native!(
     :path => config[:reactNativePath],
     # to enable hermes on iOS, change `false` to `true` and then install pods
