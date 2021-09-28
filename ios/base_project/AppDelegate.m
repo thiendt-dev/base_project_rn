@@ -1,3 +1,4 @@
+#import "ReactNativeConfig.h"
 #import "AppDelegate.h"
 
 #import <React/RCTBridge.h>
@@ -6,6 +7,8 @@
 #import <Firebase.h>
 #import <UserNotifications/UserNotifications.h>
 #import <RNCPushNotificationIOS.h>
+#import "RNSplashScreen.h"  // here
+
 
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
@@ -54,6 +57,7 @@ static void InitializeFlipper(UIApplication *application) {
     // Define UNUserNotificationCenter
   UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
   center.delegate = self;
+  [RNSplashScreen show];  // here
   return YES;
 }
 

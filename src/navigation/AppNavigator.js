@@ -8,31 +8,33 @@ import ProfileScreen from '../screens/ProfileScreen';
 import NotificationScreen from '../screens/NotificationScreen';
 import {fcmService} from '../utils/firebase/FCMService';
 import {localNotificationService} from '../utils/firebase/LocalNotificationService';
+import SplashScreen from 'react-native-splash-screen';
 
 const Tab = createBottomTabNavigator();
 const AppNavigator = () => {
   useEffect(() => {
+    SplashScreen.hide();
     console.log('call config notification');
-    fcmService.register(onRegister, onNotification, onOpenNotification);
-    localNotificationService.configure(onOpenNotification);
+    // fcmService.register(onRegister, onNotification, onOpenNotification);
+    // localNotificationService.configure(onOpenNotification);
 
-    function onRegister(token) {
-      console.log('[App] onRegister: ', token);
-    }
+    // function onRegister(token) {
+    //   console.log('[App] onRegister: ', token);
+    // }
 
-    function onNotification(remoteMessage) {
-      console.log('[App] onNotification: ', remoteMessage);
-    }
+    // function onNotification(remoteMessage) {
+    //   console.log('[App] onNotification: ', remoteMessage);
+    // }
 
-    function onOpenNotification(remoteMessage) {
-      console.log('[App] onOpenNotification: ', remoteMessage);
-    }
+    // function onOpenNotification(remoteMessage) {
+    //   console.log('[App] onOpenNotification: ', remoteMessage);
+    // }
 
-    return () => {
-      console.log('[App] unRegister');
-      fcmService.unRegister();
-      localNotificationService.unregister();
-    };
+    // return () => {
+    //   console.log('[App] unRegister');
+    //   fcmService.unRegister();
+    //   localNotificationService.unregister();
+    // };
   }, []);
 
   return (
